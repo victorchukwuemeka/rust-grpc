@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package blog;
+
+service Blogservice{
+    rpc AddPost(PostRequest) returns (PostResponse);
+    rpc StreamPosts(Empty) returns (stream PostResponse);
+}
+
+message PostRequest{
+    string title = 1;
+    string content = 2; 
+}
+
+
+message PostResponse{
+    string title =1;
+    string content =2;
+    int32 id =3;
+}
+
+
+message Empty{}
